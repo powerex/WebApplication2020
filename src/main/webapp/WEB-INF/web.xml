@@ -54,6 +54,34 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+<!--    Cookies servlets-->
+    <servlet>
+        <servlet-name>SetCookies</servlet-name>
+        <servlet-class>servlets.cookies.SetCookiesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SetCookies</servlet-name>
+        <url-pattern>/setcookies</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetCookies</servlet-name>
+        <servlet-class>servlets.cookies.GetCookiesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetCookies</servlet-name>
+        <url-pattern>/getcookies</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteCookies</servlet-name>
+        <servlet-class>servlets.cookies.DeleteCookiesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteCookies</servlet-name>
+        <url-pattern>/delcookies</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>PageJsp</servlet-name>
         <jsp-file>/pages/page.jsp</jsp-file>
