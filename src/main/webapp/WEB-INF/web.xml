@@ -83,6 +83,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>GetTitles</servlet-name>
+        <servlet-class>servlets.jdbc.SubjectsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetTitles</servlet-name>
+        <url-pattern>/subjects</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>PageJsp</servlet-name>
         <jsp-file>/pages/page.jsp</jsp-file>
     </servlet>
