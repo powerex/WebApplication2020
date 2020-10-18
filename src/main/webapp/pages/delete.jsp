@@ -22,13 +22,10 @@
     } catch (SQLException throwables) {
         throwables.printStackTrace();
     }
-    response.sendRedirect("/");
+    response.sendRedirect("/courses");
 %>
 
 <html>
-<head>
-    <title>Title</title>
-</head>
 <body>
 
 </body>

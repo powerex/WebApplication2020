@@ -100,4 +100,31 @@
         <url-pattern>/jsp</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CoursesPage</servlet-name>
+        <jsp-file>/pages/courses.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CoursesPage</servlet-name>
+        <url-pattern>/courses</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdatePage</servlet-name>
+        <jsp-file>/pages/update.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdatePage</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeletePage</servlet-name>
+        <jsp-file>/pages/delete.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeletePage</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+
 </web-app>

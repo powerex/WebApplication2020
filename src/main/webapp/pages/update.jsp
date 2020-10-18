@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.sql.*" %>
+<%@ page import="db.ConnectionFactory" %>
 
 <%
     if (request.getParameter("submit") != null) {
@@ -29,11 +30,7 @@
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        response.sendRedirect("/");
-    }
-
-    if (request.getParameter("reset") != null) {
-        response.sendRedirect("/");
+        response.sendRedirect("/courses");
     }
 %>
 
@@ -56,14 +53,8 @@
                 Connection connection;
                 PreparedStatement pst;
                 ResultSet resultSet;
-
                 try {
-                    Class.forName("org.postgresql.Driver");
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/webdb", "postgres", "postgres");
+                    connection = ConnectionFactory.getConnection();
                     Integer id = Integer.valueOf(request.getParameter("id"));
                     pst = connection.prepareStatement("select * from subjects where id = ?");
                     pst.setInt(1, id);
@@ -82,7 +73,7 @@
             </div>
             <div align="left">
                 <label class="form-label">Кредити</label>
-                <input type="text" class="form-control" placeholder="Кредити" value="<%=resultSet.getInt("credits")%>" name="credit" id="credit" required>
+                <input type="number" class="form-control" placeholder="Кредити" value="<%=resultSet.getInt("credits")%>" name="credit" id="credit" required>
             </div>
 
             <%
@@ -95,7 +86,7 @@
             </br>
             <div align="rigth">
                 <input type="submit" id="submit" value="Підтвердити" name="submit" class="btn btn-info">
-                <input type="reset" id="reset" value="Скасувати" name="reset" class="btn btn-warning" onclick="location.href='/'">
+                <input type="reset" id="reset" value="Скасувати" name="reset" class="btn btn-warning" onclick="location.href='/courses'">
             </div>
         </form>
     </div>
