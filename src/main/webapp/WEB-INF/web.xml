@@ -37,6 +37,24 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>CounterServlet</servlet-name>
+        <servlet-class>servlets.SessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CounterServlet</servlet-name>
+        <url-pattern>/counter</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>servlets.UserAuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>PageJsp</servlet-name>
         <jsp-file>/pages/page.jsp</jsp-file>
     </servlet>
