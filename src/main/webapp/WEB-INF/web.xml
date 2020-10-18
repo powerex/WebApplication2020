@@ -19,6 +19,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>RedirectServlet</servlet-name>
+        <servlet-class>servlets.RedirectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RedirectServlet</servlet-name>
+        <url-pattern>/redirect</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>PageJsp</servlet-name>
         <jsp-file>/pages/page.jsp</jsp-file>
     </servlet>
