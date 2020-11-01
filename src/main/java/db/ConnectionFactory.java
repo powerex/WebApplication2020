@@ -29,10 +29,10 @@ public class ConnectionFactory {
             e.printStackTrace();
         }
         try {
+
             connection = DriverManager.getConnection(
                     (String)connectionProperties.get("url"),
-                    (String)connectionProperties.get("user"),
-                    (String)connectionProperties.get("password"));
+                    connectionProperties);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

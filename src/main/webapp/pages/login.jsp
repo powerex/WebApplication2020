@@ -2,11 +2,26 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        @import "../bootstrap/css/bootstrap.css";
+        @import "../bootstrap/css/bootstrap.min.css";
+    </style>
 </head>
 <body>
-    <form action="/login">
-        <input type="text" name="username" id="username">
-        <input type="submit" value="Авторизуватись">
-    </form>
+<form method="post" action="">
+    </br>
+    <div align="left">
+        <label class="form-label">Логін</label>
+        <input type="text" class="form-control" placeholder="Логін" name="login" id="login"
+               required>
+    </div>
+    <div align="left">
+        <label class="form-label">Пароль</label>
+        <input type="text" class="form-control" placeholder="Пароль" name="pwd" id="pwd" required>
+    </div>
+    <div align="rigth">
+        <input type="submit" value="Увійти" class="btn btn-info">
+    </div>
+</form>
 </body>
 </html>
