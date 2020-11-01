@@ -2,6 +2,9 @@
 <%@page import="java.sql.*" %>
 <%@ page import="db.ConnectionFactory" %>
 
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%
     if (request.getParameter("submit") != null) {
         Integer id = Integer.valueOf(request.getParameter("id"));
@@ -34,6 +37,8 @@
     }
 %>
 
+<fmt:setBundle basename="message" />
+<fmt:setLocale value="${cookie['lang'].value}" scope="application"/>
 
 <html>
 <head>
@@ -44,7 +49,7 @@
     </style>
 </head>
 <body>
-<h1>Оновлення даних</h1>
+<h1><fmt:message key="data.update"/></h1>
 <div class="row">
     <div class="col-sm-4">
         <form method="post" action="#">
@@ -64,16 +69,16 @@
 
             </br>
             <div align="left">
-                <label class="form-label">Назва курсу</label>
-                <input type="text" class="form-control" placeholder="Назва курсу" value="<%=resultSet.getString("title")%>" name="course" id="course" required>
+                <label class="form-label"><fmt:message key="entity.title"/></label>
+                <input type="text" class="form-control" placeholder=<fmt:message key="entity.title"/> value="<%=resultSet.getString("title")%>" name="course" id="course" required>
             </div>
             <div align="left">
-                <label class="form-label">Викладач</label>
-                <input type="text" class="form-control" placeholder="Викладач" value="<%=resultSet.getString("lecturer")%>" name="cname" id="cname" required>
+                <label class="form-label"><fmt:message key="entity.lecturer"/></label>
+                <input type="text" class="form-control" placeholder=<fmt:message key="entity.lecturer"/> value="<%=resultSet.getString("lecturer")%>" name="cname" id="cname" required>
             </div>
             <div align="left">
-                <label class="form-label">Кредити</label>
-                <input type="number" class="form-control" placeholder="Кредити" value="<%=resultSet.getInt("credits")%>" name="credit" id="credit" required>
+                <label class="form-label"><fmt:message key="entity.credits"/></label>
+                <input type="number" class="form-control" placeholder=<fmt:message key="entity.credits"/> value="<%=resultSet.getInt("credits")%>" name="credit" id="credit" required>
             </div>
 
             <%
@@ -85,8 +90,8 @@
             %>
             </br>
             <div align="rigth">
-                <input type="submit" id="submit" value="Підтвердити" name="submit" class="btn btn-info">
-                <input type="reset" id="reset" value="Скасувати" name="reset" class="btn btn-warning" onclick="location.href='/courses'">
+                <input type="submit" id="submit" value=<fmt:message key="button.submit"/> name="submit" class="btn btn-info">
+                <input type="reset" id="reset" value=<fmt:message key="button.cancel"/> name="reset" class="btn btn-warning" onclick="location.href='/courses'">
             </div>
         </form>
     </div>
