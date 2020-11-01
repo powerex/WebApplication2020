@@ -9,20 +9,22 @@
         String cname = request.getParameter("cname");
         String credit = request.getParameter("credit");
 
-        Connection connection = null;
-        PreparedStatement pst;
+        if (title != null && cname != null && credit != null) {
+            Connection connection = null;
+            PreparedStatement pst;
 
-        try {
-            connection = ConnectionFactory.getConnection();
-            pst = connection.prepareStatement("insert into subjects(title, lecturer, credits) values (?,?,?)");
-            pst.setString(1, title);
-            pst.setString(2, cname);
-            Integer cr = Integer.valueOf(credit);
-            pst.setInt(3, cr);
-            pst.executeUpdate();
-            connection.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            try {
+                connection = ConnectionFactory.getConnection();
+                pst = connection.prepareStatement("insert into subjects(title, lecturer, credits) values (?,?,?)");
+                pst.setString(1, title);
+                pst.setString(2, cname);
+                Integer cr = Integer.valueOf(credit);
+                pst.setInt(3, cr);
+                pst.executeUpdate();
+                connection.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         }
     }
 %>
@@ -109,5 +111,11 @@
         </div>
     </div>
 </div>
+
+<form action="/logout" method="get">
+    <input type="submit" value="Вийти" id="frm1_submit" />
+</form>
+
+
 </body>
 </html>

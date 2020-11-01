@@ -100,12 +100,22 @@
         <url-pattern>/jsp</url-pattern>
     </servlet-mapping>
 
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>filters.AuthFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/courses</url-pattern>
+    </filter-mapping>
+
     <servlet>
-        <servlet-name>CoursesPage</servlet-name>
-        <jsp-file>/pages/courses.jsp</jsp-file>
+        <servlet-name>LoginPage</servlet-name>
+        <jsp-file>/pages/login.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>CoursesPage</servlet-name>
+        <servlet-name>LoginPage</servlet-name>
         <url-pattern>/courses</url-pattern>
     </servlet-mapping>
 
@@ -125,6 +135,25 @@
     <servlet-mapping>
         <servlet-name>DeletePage</servlet-name>
         <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>CharsetFilter</filter-name>
+        <filter-class>filters.CharsetFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharsetFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>servlets.LogoutServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
 </web-app>
