@@ -160,4 +160,13 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Localization</servlet-name>
+        <servlet-class>servlets.LanguageSelector</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Localization</servlet-name>
+        <url-pattern>/confirm</url-pattern>
+    </servlet-mapping>
+
 </web-app>
