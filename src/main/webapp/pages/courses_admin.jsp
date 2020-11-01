@@ -52,21 +52,21 @@
         <div class="col-sm-4">
             <form method="post" action="#">
                 <div align="left">
-                    <label for="course" class="form-label">Назва курсу</label>
-                    <input type="text" class="form-control" placeholder="Назва курсу" name="course" id="course"
+                    <label for="course" class="form-label"><fmt:message key="entity.title"/></label>
+                    <input type="text" class="form-control" placeholder=<fmt:message key="entity.title"/> name="course" id="course"
                                                        required>
                 </div>
                 <div align="left">
-                    <label for="cname" class="form-label">Викладач</label>
-                    <input type="text" class="form-control" placeholder="Викладач" name="cname" id="cname" required>
+                    <label for="cname" class="form-label"><fmt:message key="entity.lecturer"/></label>
+                    <input type="text" class="form-control" placeholder=<fmt:message key="entity.lecturer"/> name="cname" id="cname" required>
                 </div>
                 <div align="left">
-                    <label for="credit" class="form-label">Кредити</label>
-                    <input type="number" class="form-control" placeholder="Кредити" name="credit" id="credit" required>
+                    <label for="credit" class="form-label"><fmt:message key="entity.credits"/></label>
+                    <input type="number" class="form-control" placeholder=<fmt:message key="entity.credits"/> name="credit" id="credit" required>
                 </div>
                 <div align="rigth">
-                    <input type="submit" id="submit" value="Підтвердити" name="submit" class="btn btn-info">
-                    <input type="reset" id="reset" value="Скасувати" name="reset" class="btn btn-warning">
+                    <input type="submit" id="submit" value=<fmt:message key="button.submit"/> name="submit" class="btn btn-info">
+                    <input type="reset" id="reset" value=<fmt:message key="button.cancel"/> name="reset" class="btn btn-warning">
                 </div>
             </form>
         </div>
