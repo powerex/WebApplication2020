@@ -14,6 +14,7 @@ import java.io.IOException;
 public class AuthFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
+
     }
 
     @Override
@@ -41,9 +42,6 @@ public class AuthFilter implements Filter {
             req.getSession().setAttribute("password", password);
             req.getSession().setAttribute("login", login);
             req.getSession().setAttribute("role", role);
-
-            moveToPage(req, res, role);
-
         } else {
             role = Role.DEFAULT;
         }

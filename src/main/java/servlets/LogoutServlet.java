@@ -12,7 +12,7 @@ public class LogoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final HttpSession session = req.getSession();
 
-        session.removeAttribute("pwd");
+        session.removeAttribute("password");
         session.removeAttribute("login");
         session.removeAttribute("role");
 

@@ -18,6 +18,7 @@ public class CharsetFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         servletResponse.setContentType("text/html; charset=UTF-8");
         servletRequest.setCharacterEncoding(encoding);
+        System.out.println("" + new Date() + "In charset filter " + ((HttpServletRequest)servletRequest).getParameter("course"));
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
