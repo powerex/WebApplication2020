@@ -49,6 +49,9 @@
     </style>
 </head>
 <body>
+
+<div style="padding: 20px">
+
 <h1><fmt:message key="data.update"/></h1>
 <div class="row">
     <div class="col-sm-4">
@@ -95,6 +98,6 @@
             </div>
         </form>
     </div>
-</div>
+</div></div>
 </body>
 </html>

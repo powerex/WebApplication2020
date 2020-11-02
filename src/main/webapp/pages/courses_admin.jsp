@@ -125,13 +125,17 @@
         <fmt:message key="cookie.ChooseLocale" />
     </h5>
     <ul>
-<%--        <li><a href="?cookieLocale=en_US"><fmt:message key="lang.en" /></a></li>--%>
+        <%--        <li><a href="?cookieLocale=en_US"><fmt:message key="lang.en" /></a></li>--%>
         <li><a href="confirm?cookieLocale=en_US"><fmt:message key="lang.en" /></a></li>
-<%--        <li><a href="?cookieLocale=uk_UA"><fmt:message key="lang.ua" /></a></li>--%>
+        <%--        <li><a href="?cookieLocale=uk_UA"><fmt:message key="lang.ua" /></a></li>--%>
         <li><a href="confirm?cookieLocale=uk_UA"><fmt:message key="lang.ua" /></a></li>
         <li><a href="confirm?cookieLocale=de_DE"><fmt:message key="lang.de" /></a></li>
     </ul>
 </div>
+
+<form action="/logout" method="get">
+    <input type="submit" value=<fmt:message key="user.logout"/> id="frm1_submit" />
+</form>
 
 </body>
 </html>
