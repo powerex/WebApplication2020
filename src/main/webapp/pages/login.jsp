@@ -1,4 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+
+<fmt:setBundle basename="message"/>
+
 <html>
 <head>
     <title>Title</title>
@@ -8,20 +12,23 @@
     </style>
 </head>
 <body>
+<div style="display: block; margin: auto; width: 300px; height: 200px">
 <form method="post" action="">
     </br>
     <div align="left">
-        <label class="form-label">Логін</label>
-        <input type="text" class="form-control" placeholder="Логін" name="login" id="login"
+        <label for="login" class="form-label"><fmt:message key="user.login"/></label>
+        <input type="text" class="form-control" placeholder=<fmt:message key="user.login"/> name="login" id="login"
                required>
     </div>
     <div align="left">
-        <label class="form-label">Пароль</label>
-        <input type="text" class="form-control" placeholder="Пароль" name="pwd" id="pwd" required>
+        <label for="pwd" class="form-label"><fmt:message key="user.password"/></label>
+        <input type="text" class="form-control" placeholder=<fmt:message key="user.password"/> name="pwd" id="pwd" required>
     </div>
+    <br>
     <div align="rigth">
-        <input type="submit" value="Увійти" class="btn btn-info">
+        <input type="submit" class="btn btn-info" value=<fmt:message key="button.enter"/> >
     </div>
 </form>
+</div>
 </body>
 </html>
