@@ -15,16 +15,10 @@ public class SubjectDaoImpl implements SubjectDao {
     public List<Subject> listSubjects() {
 
         List<Subject> list = new ArrayList<>();
-
-        Connection connection = ConnectionFactory.getConnection();
-
-        PreparedStatement pst;
         ResultSet resultSet;
 
-        try {
-            connection = ConnectionFactory.getConnection();
+        try (Connection connection = ConnectionFactory.getConnection()) {
             resultSet = connection.createStatement().executeQuery("select * from subjects order by id");
-
             while (resultSet.next()) {
                 Subject subject = new Subject();
                 subject.setId(resultSet.getInt("id"));
@@ -33,8 +27,6 @@ public class SubjectDaoImpl implements SubjectDao {
                 subject.setLecturer(resultSet.getString("lecturer"));
                 list.add(subject);
             }
-
-            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -43,6 +35,15 @@ public class SubjectDaoImpl implements SubjectDao {
 
     @Override
     public void saveSubject(Subject subject) {
-
+        try (Connection connection = ConnectionFactory.getConnection()) {
+            PreparedStatement pst;
+            pst = connection.prepareStatement("insert into subjects(title, lecturer, credits) values (?,?,?)");
+            pst.setString(1, subject.getTitle());
+            pst.setString(2, subject.getLecturer());
+            pst.setInt(3, subject.getCredits());
+            pst.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

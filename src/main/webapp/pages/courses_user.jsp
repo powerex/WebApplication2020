@@ -3,6 +3,10 @@
 
 <%@page import="java.sql.*" %>
 <%@ page import="db.ConnectionFactory" %>
+<%@ page import="model.Subject" %>
+<%@ page import="java.util.List" %>
+<%@ page import="dao.SubjectDao" %>
+<%@ page import="dao.SubjectDaoImpl" %>
 
 <fmt:setBundle basename="message"/>
 
@@ -30,28 +34,21 @@
                     </tr>
 
                         <%
-                        Connection connection = ConnectionFactory.getConnection();
-                        ResultSet resultSet;
-
-                        try {
-                            resultSet = connection.createStatement().executeQuery("select * from subjects order by id");
-
-                            while (resultSet.next()) {
+                        SubjectDao subjectDao = new SubjectDaoImpl();
+                        List<Subject> subjectList = subjectDao.listSubjects();
+                        for (Subject s: subjectList) {
                                 %>
                     <tr>
-                        <td><%=resultSet.getString("title")%>
+                        <td><%=s.getTitle()%>
                         </td>
-                        <td><%=resultSet.getString("lecturer")%>
+                        <td><%=s.getLecturer()%>
                         </td>
-                        <td align="center"><%=resultSet.getInt("credits")%>
+                        <td align="center"><%=s.getCredits()%>
                         </td>
                     </tr>
 
                         <%
-                            }
-                            connection.close();
-                        } catch (SQLException throwables) {
-                            throwables.printStackTrace();
+
                         }
                     %>
                 </table>
