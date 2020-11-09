@@ -31,6 +31,7 @@ public class SubjectDaoImpl implements SubjectDao {
                 subject.setCredits(resultSet.getInt("credits"));
                 subject.setTitle(resultSet.getString("title"));
                 subject.setLecturer(resultSet.getString("lecturer"));
+                list.add(subject);
             }
 
             connection.close();
@@ -38,5 +39,10 @@ public class SubjectDaoImpl implements SubjectDao {
             throwables.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public void saveSubject(Subject subject) {
+
     }
 }

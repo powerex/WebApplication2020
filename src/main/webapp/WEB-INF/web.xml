@@ -109,6 +109,10 @@
         <filter-name>AuthFilter</filter-name>
         <url-pattern>/courses</url-pattern>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/pages/*</url-pattern>
+    </filter-mapping>
 
     <servlet>
         <servlet-name>LoginPage</servlet-name>
