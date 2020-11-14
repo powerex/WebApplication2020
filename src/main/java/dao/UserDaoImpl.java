@@ -1,6 +1,7 @@
 package dao;
 
 import db.ConnectionFactory;
+import logic.HashChecker;
 import model.Role;
 
 import java.sql.Connection;
@@ -18,7 +19,7 @@ public class UserDaoImpl implements UserDao {
                         "select login, password from users where login = ? and password = ?"
                 )) {
             preparedStatement.setString(1, login);
-            preparedStatement.setString(2, password);
+            preparedStatement.setString(2, HashChecker.getHash(password));
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet != null && resultSet.next()) {
                 System.out.println("Login: " + resultSet.getString("login") + "\n"
@@ -41,7 +42,7 @@ public class UserDaoImpl implements UserDao {
                                 "where a.login = ? and a.password = ?"
                 )) {
             preparedStatement.setString(1, login);
-            preparedStatement.setString(2, password);
+            preparedStatement.setString(2, HashChecker.getHash(password));
 
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet != null && resultSet.next()) {

@@ -6,6 +6,11 @@
 <%@ page import="dao.SubjectDaoImpl" %>
 <%@ page import="dao.SubjectDao" %>
 <%@ page import="java.util.List" %>
+<%@ page import="dao.LecturersDao" %>
+<%@ page import="dao.LecturerDaoImpl" %>
+<%@ page import="model.Lecturer" %>
+<%@ page import="java.util.LinkedList" %>
+<%@ page import="java.util.Map" %>
 <%@ page session="true" %>
 <%@ page isELIgnored="false" %>
 
@@ -15,10 +20,9 @@
 <%
     if (request.getParameter("submit") != null) {
         String title = request.getParameter("course");
-        String cname = request.getParameter("cname");
+        int lecturerId = Integer.parseInt(request.getParameter("lecturer"));
         int credit = Integer.parseInt(request.getParameter("credit"));
-
-        Subject subject = new Subject(0, title, cname, credit);
+        Subject subject = new Subject(0, title, lecturerId, credit);
         new SubjectDaoImpl().saveSubject(subject);
 
     }
@@ -30,6 +34,13 @@
 <html>
 <head>
     <title><fmt:message key="site_title"/></title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
     <style>
         @import "../styles/dropbox.css";
         @import "../bootstrap/css/bootstrap.css";
@@ -37,6 +48,11 @@
     </style>
 </head>
 <body>
+
+<%
+    request.setAttribute("list", new LecturerDaoImpl().listNames());
+%>
+
 <div style="padding: 20px">
 
     <h1><fmt:message key="site_title"/></h1>
@@ -52,8 +68,13 @@
                 </div>
                 <div align="left">
                     <label class="form-label"><fmt:message key="entity.lecturer"/></label>
-                    <input type="text" class="form-control" placeholder=
-                    <fmt:message key="entity.lecturer"/> name="cname" id="cname" required>
+
+                    <select class="form-control" name="lecturer" id="lecturer" required>
+                        <c:forEach items="${list}" var="lecturer">
+                            <option value="${lecturer.key}">${lecturer.value}</option>
+                        </c:forEach>
+                    </select>
+
                 </div>
                 <div align="left">
                     <label class="form-label"><fmt:message key="entity.credits"/></label>
@@ -105,7 +126,7 @@
                     %>
                 </table>
             </div>
-        </div>
+        </div>lecturers
     </div>
 </div>
 

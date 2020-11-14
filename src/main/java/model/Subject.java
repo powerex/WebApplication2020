@@ -4,16 +4,25 @@ public class Subject {
     private int id;
     private String title;
     private String lecturer;
+    private int lecturerId;
     private int credits;
 
     public Subject() {
     }
 
-    public Subject(int id, String title, String lecturer, int credits) {
+    public Subject(int id, String title, int lecturerId, int credits) {
         this.id = id;
         this.title = title;
-        this.lecturer = lecturer;
+        this.lecturerId = lecturerId;
         this.credits = credits;
+    }
+
+    public int getLecturerId() {
+        return lecturerId;
+    }
+
+    public void setLecturerId(int lecturerId) {
+        this.lecturerId = lecturerId;
     }
 
     public int getId() {

@@ -22,7 +22,7 @@
     </div>
     <div align="left">
         <label for="pwd" class="form-label"><fmt:message key="user.password"/></label>
-        <input type="text" class="form-control" placeholder=<fmt:message key="user.password"/> name="pwd" id="pwd" required>
+        <input type="password" class="form-control" placeholder=<fmt:message key="user.password"/> name="pwd" id="pwd" required>
     </div>
     <br>
     <div align="rigth">
