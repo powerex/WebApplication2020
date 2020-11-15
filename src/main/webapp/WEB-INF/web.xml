@@ -118,6 +118,15 @@
         <url-pattern>/user/update</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>StudentServlet</servlet-name>
+        <servlet-class>servlets.StudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentServlet</servlet-name>
+        <url-pattern>/students</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>CharsetFilter</filter-name>
         <filter-class>filters.CharsetFilter</filter-class>
