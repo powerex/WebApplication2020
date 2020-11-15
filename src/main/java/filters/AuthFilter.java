@@ -1,10 +1,8 @@
 package filters;
 
-import dao.LecturerDaoImpl;
 import dao.UserDao;
 import dao.UserDaoImpl;
 import model.Role;
-import model.User;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

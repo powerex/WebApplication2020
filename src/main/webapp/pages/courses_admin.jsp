@@ -1,32 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@page import="java.sql.*" %>
-<%@ page import="db.ConnectionFactory" %>
-<%@ page import="model.Subject" %>
 <%@ page import="dao.SubjectDaoImpl" %>
-<%@ page import="dao.SubjectDao" %>
-<%@ page import="java.util.List" %>
-<%@ page import="dao.LecturersDao" %>
 <%@ page import="dao.LecturerDaoImpl" %>
-<%@ page import="model.Lecturer" %>
-<%@ page import="java.util.LinkedList" %>
-<%@ page import="java.util.Map" %>
-<%@ page session="true" %>
 <%@ page isELIgnored="false" %>
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<%
-    if (request.getParameter("submit") != null) {
-        String title = request.getParameter("course");
-        int lecturerId = Integer.parseInt(request.getParameter("lecturer"));
-        int credit = Integer.parseInt(request.getParameter("credit"));
-        Subject subject = new Subject(0, title, lecturerId, credit);
-        new SubjectDaoImpl().saveSubject(subject);
-
-    }
-%>
 
 <fmt:setBundle basename="message"/>
 <fmt:setLocale value="${cookie['lang'].value}" scope="application"/>
@@ -50,7 +29,8 @@
 <body>
 
 <%
-    request.setAttribute("list", new LecturerDaoImpl().listNames());
+    request.setAttribute("listLecturers", new LecturerDaoImpl().listNames());
+    request.setAttribute("listCourses", new SubjectDaoImpl().listSubjects());
 %>
 
 <div style="padding: 20px">
@@ -58,7 +38,7 @@
     <h1><fmt:message key="site_title"/></h1>
     <div class="row">
         <div class="col-sm-4">
-            <form method="post" action="#">
+            <form method="post" action="/user/save">
                 </br>
                 <div align="left">
                     <label class="form-label"><fmt:message key="title"/></label>
@@ -70,7 +50,7 @@
                     <label class="form-label"><fmt:message key="entity.lecturer"/></label>
 
                     <select class="form-control" name="lecturer" id="lecturer" required>
-                        <c:forEach items="${list}" var="lecturer">
+                        <c:forEach items="${listLecturers}" var="lecturer">
                             <option value="${lecturer.key}">${lecturer.value}</option>
                         </c:forEach>
                     </select>
@@ -103,30 +83,22 @@
                         <th><fmt:message key="data.delete"/></th>
                     </tr>
 
-                        <%
-                        SubjectDao subjectDao = new SubjectDaoImpl();
-                        List<Subject> subjectList = subjectDao.listSubjects();
-                        for (Subject s: subjectList) {
-                                %>
+                    <c:forEach items="${listCourses}" var="subject">
                     <tr>
-                        <td><%=s.getTitle()%>
-                        </td>
-                        <td><%=s.getLecturer()%>
-                        </td>
-                        <td align="center"><%=s.getCredits()%>
-                        </td>
-                        <td align="center"><a href="/update?id=<%=s.getId()%>"><img
+                        <td>${subject.title}</td>
+                        <td>${subject.lecturer}</td>
+                        <td align="center">${subject.credits}</td>
+                        <td align="center"><a href="/user/update?id=${subject.id}"><img
                                 src="../images/edit.png" alt="Edit" width="24"></a></td>
-                        <td align="center"><a href="/delete?id=<%=s.getId()%>"><img
+                        <td align="center"><a href="/delete?id=${subject.id}"><img
                                 src="../images/delete.png" alt="Delete" width="24"></a></td>
                     </tr>
 
-                        <%
-                        }
-                    %>
+                    </c:forEach>
+
                 </table>
             </div>
-        </div>lecturers
+        </div>
     </div>
 </div>
 
@@ -135,9 +107,7 @@
         <fmt:message key="cookie.ChooseLocale"/>
     </h5>
     <ul>
-        <%--        <li><a href="?cookieLocale=en_US"><fmt:message key="lang.en" /></a></li>--%>
         <li><a href="confirm?cookieLocale=en_US"><fmt:message key="lang.en"/></a></li>
-        <%--        <li><a href="?cookieLocale=uk_UA"><fmt:message key="lang.ua" /></a></li>--%>
         <li><a href="confirm?cookieLocale=uk_UA"><fmt:message key="lang.ua"/></a></li>
         <li><a href="confirm?cookieLocale=de_DE"><fmt:message key="lang.de"/></a></li>
     </ul>

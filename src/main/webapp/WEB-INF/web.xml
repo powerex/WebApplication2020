@@ -100,6 +100,24 @@
         <url-pattern>/jsp</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CourseSaveServlet</servlet-name>
+        <servlet-class>servlets.CourseSaveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CourseSaveServlet</servlet-name>
+        <url-pattern>/user/save</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CourseUpdateServlet</servlet-name>
+        <servlet-class>servlets.CourseUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CourseUpdateServlet</servlet-name>
+        <url-pattern>/user/update</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>CharsetFilter</filter-name>
         <filter-class>filters.CharsetFilter</filter-class>
