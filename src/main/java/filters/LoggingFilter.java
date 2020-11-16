@@ -1,14 +1,11 @@
 package filters;
 
-import db.ConnectionFactory;
-import model.Subject;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -34,7 +31,6 @@ public class LoggingFilter implements Filter {
         String message = "Servlet path: " + servletPath + "; Call from : " + remoteAddr;
 
         logger.log(Level.INFO, message);
-        System.out.println("In logger filter");
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
