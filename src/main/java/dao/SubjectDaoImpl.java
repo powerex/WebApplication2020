@@ -40,6 +40,7 @@ public class SubjectDaoImpl implements SubjectDao {
 
     @Override
     public void saveSubject(Subject subject) {
+        //TODO add editing existing entry
         try (Connection connection = ConnectionFactory.getConnection()) {
             PreparedStatement pst;
             pst = connection.prepareStatement("insert into subjects(title, lecturer_id, credits) values (?,?,?)");

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class StudentServlet extends HttpServlet {
 
-    private final int SPP = 5;
+    private final int SPP = 3;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
