@@ -22,6 +22,7 @@
 
     <style>
         @import "../styles/dropbox.css";
+        @import "../styles/table.css";
         @import "../bootstrap/css/bootstrap.css";
         @import "../bootstrap/css/bootstrap.min.css";
     </style>
@@ -76,7 +77,8 @@
                 <table id="tbl-subjects" class="table table-responsive table-bordered" cellpadding="0" width="100%">
                     <thead>
                     <tr>
-                        <th><fmt:message key="entity.title"/></th>
+                        <th class="asc">#</th>
+                        <th class="desc"><fmt:message key="entity.title"/></th>
                         <th><fmt:message key="entity.lecturer"/></th>
                         <th><fmt:message key="entity.credits"/></th>
                         <th><fmt:message key="data.edit"/></th>
@@ -114,7 +116,7 @@
 </div>
 
 <div id="report_div">
-    <a href="/getPdfFile">Get report in PDF</a>
+    <a href="/getPdfFile" target="_blank">Get report in PDF</a>
 </div>
 
 <form action="/logout" method="get">
