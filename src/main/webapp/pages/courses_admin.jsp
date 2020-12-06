@@ -113,6 +113,10 @@
     </ul>
 </div>
 
+<div>
+    <a href="/downloadJson">Отримати звіт-файл у форматі JSON</a>
+</div>
+
 <form action="/logout" method="get">
     <input type="submit" value=
     <fmt:message key="user.logout"/> id="frm1_submit"/>
