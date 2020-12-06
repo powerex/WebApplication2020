@@ -205,4 +205,13 @@
         <url-pattern>/confirm</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>PdfCreator</servlet-name>
+        <servlet-class>servlets.PdfCreatorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PdfCreator</servlet-name>
+        <url-pattern>/getPdfFile</url-pattern>
+    </servlet-mapping>
+
 </web-app>

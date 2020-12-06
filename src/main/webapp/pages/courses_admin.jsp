@@ -113,6 +113,10 @@
     </ul>
 </div>
 
+<div id="report_div">
+    <a href="/getPdfFile">Get report in PDF</a>
+</div>
+
 <form action="/logout" method="get">
     <input type="submit" value=
     <fmt:message key="user.logout"/> id="frm1_submit"/>
