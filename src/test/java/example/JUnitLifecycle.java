@@ -11,14 +11,14 @@ import static org.junit.Assert.assertTrue;
 public class JUnitLifecycle {
     private static int counter = 0;
 
-    @BeforeClass
-    public static void suiteSetup() {
-        assertEquals(0, counter);
+    public JUnitLifecycle() {
+        assertTrue(Arrays.asList(1, 5).contains(counter));
         counter++;
     }
 
-    public JUnitLifecycle() {
-        assertTrue(Arrays.asList(1, 5).contains(counter));
+    @BeforeClass
+    public static void suiteSetup() {
+        assertEquals(0, counter);
         counter++;
     }
 
