@@ -200,6 +200,15 @@
         <servlet-class>servlets.LanguageSelector</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>JsonFile</servlet-name>
+        <servlet-class>servlets.GenerateJsonFileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JsonFile</servlet-name>
+        <url-pattern>/downloadJson</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>Localization</servlet-name>
         <url-pattern>/confirm</url-pattern>

@@ -114,7 +114,8 @@
 </div>
 
 <div id="report_div">
-    <a href="/getPdfFile" target="_blank">Get report in PDF</a>
+    <p><a href="/getPdfFile" target="_blank">Get report in PDF</a></p>
+    <p><a href="/downloadJson">Отримати звіт-файл у форматі JSON</a></p>
 </div>
 
 <form action="/logout" method="get">
